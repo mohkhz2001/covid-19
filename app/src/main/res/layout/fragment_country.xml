@@ -39,7 +39,7 @@
 
                     android:textStyle="bold" />
 
-                <Spinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:id="@+id/spinner"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
@@ -59,10 +59,11 @@
                     android:layout_height="match_parent"
                     android:layout_below="@id/spinner"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="@font/roboto_bold"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="آمار 24 ساعت گذشته: "
                     android:textColor="@color/textColor1"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     android:visibility="visible" />
 
                 <LinearLayout
@@ -197,9 +198,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:fontFamily="@font/roboto_bold"
+                            android:fontFamily="@font/roboto_medium"
                             android:text="آمار کلی کرونا: "
                             android:textColor="@color/textColor1"
+                            android:textStyle="bold"
                             android:textSize="24sp" />
 
 
