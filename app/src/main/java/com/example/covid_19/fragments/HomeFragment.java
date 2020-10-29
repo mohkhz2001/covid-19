@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -97,12 +98,13 @@ public class HomeFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Error", error.getMessage() + " ");
+                Log.d("Error", "connection failed" + " ");
+                Toast.makeText(getContext() ,"اتصال اینترنت را چک کنید" , Toast.LENGTH_SHORT).show();
             }
         });
 
         requestQueue.add(stringRequest);
-        Log.e("ERROR", "size: " + countries.size());
+
     }
 
     //set info in component
