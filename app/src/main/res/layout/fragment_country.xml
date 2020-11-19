@@ -49,8 +49,8 @@
                     android:background="@drawable/bg_spinner"
                     android:padding="10dp"
                     android:spinnerMode="dialog"
-                    android:textDirection="ltr"
                     android:textAlignment="center"
+                    android:textDirection="ltr"
                     android:visibility="visible" />
 
                 <TextView
@@ -114,19 +114,19 @@
 
                             <com.github.premnirmal.textcounter.CounterView
                                 android:id="@+id/txt_patient_number"
-                                android:layout_below="@id/txt_patient"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_below="@id/txt_patient"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/open_sans_bold"
-                                app:autoStart="true"
-                                app:startValue="0"
-                                app:incrementValue="100"
-                                app:timeInterval="5"
-                                app:type="integer"
                                 android:textColor="@color/textColor1"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                app:autoStart="true"
+                                app:incrementValue="100"
+                                app:startValue="0"
+                                app:timeInterval="5"
+                                app:type="integer" />
 
                         </RelativeLayout>
 
@@ -175,13 +175,13 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/open_sans_bold"
-                                app:autoStart="true"
-                                app:startValue="0"
-                                app:incrementValue="10"
-                                app:timeInterval="1"
-                                app:type="integer"
                                 android:textColor="#FF0000"
-                                android:textSize="18sp" />
+                                android:textSize="18sp"
+                                app:autoStart="true"
+                                app:incrementValue="10"
+                                app:startValue="0"
+                                app:timeInterval="1"
+                                app:type="integer" />
 
                         </RelativeLayout>
 
@@ -208,8 +208,8 @@
                             android:fontFamily="@font/roboto_medium"
                             android:text="آمار کلی کرونا: "
                             android:textColor="@color/textColor1"
-                            android:textStyle="bold"
-                            android:textSize="24sp" />
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
 
                         <androidx.cardview.widget.CardView
@@ -380,27 +380,25 @@
 
     </ScrollView>
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:layout_centerInParent="true"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/spin_kit"
         style="@style/SpinKitView.Wave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         app:SpinKit_Color="@color/colorPrimaryDark" />
 
     <TextView
         android:id="@+id/connect"
-        android:visibility="visible"
-        android:layout_below="@id/spin_kit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spin_kit"
         android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
         android:text="connecting..."
         android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        />
+        android:visibility="visible" />
 
 
 </RelativeLayout>
