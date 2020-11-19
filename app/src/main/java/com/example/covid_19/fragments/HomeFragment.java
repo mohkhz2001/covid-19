@@ -1,6 +1,8 @@
 package com.example.covid_19.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +19,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.covid_19.HomeActivity;
 import com.example.covid_19.R;
 import com.example.covid_19.model.Country;
+import com.example.covid_19.splashScreenActivity;
+import com.github.premnirmal.textcounter.CounterView;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -35,7 +40,8 @@ public class HomeFragment extends Fragment {
 
     List<Country> countries = new ArrayList<>();// list of the info country
     View view;
-    TextView NewConfirmed, TotalConfirmed, NewDeaths, TotalDeaths, TotalRecovered, connect;
+    TextView TotalConfirmed, TotalDeaths, TotalRecovered, connect;
+    CounterView NewConfirmed , NewDeaths;
     RequestQueue requestQueue;
     LinearLayout parent;
     SpinKitView spin_kit;
@@ -72,14 +78,14 @@ public class HomeFragment extends Fragment {
     }
 
     // api request and get the info
-    private void RequestAPI(){
+    private void RequestAPI() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url_api_2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
 
                     JSONArray jsonArray = new JSONArray(response);
-                    Log.e("ERROR" , "aa " + jsonArray.length() );
+                    Log.e("ERROR", "aa " + jsonArray.length());
                     GsonBuilder gsonBuilder = new GsonBuilder();
                     Gson gson = gsonBuilder.create();
 
@@ -99,7 +105,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", "connection failed" + " ");
-                Toast.makeText(getContext() ,"اتصال اینترنت را چک کنید" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "اتصال اینترنت را چک کنید", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -109,14 +115,16 @@ public class HomeFragment extends Fragment {
 
     //set info in component
     private void setInfo() {
-
         DecimalFormat decimalFormat = new DecimalFormat("###,###");// set the decimal format
-
+        
         TotalConfirmed.setText(decimalFormat.format(Integer.valueOf(countries.get(0).getCases())));
         TotalDeaths.setText(decimalFormat.format(Integer.valueOf(countries.get(0).getDeaths())));
         TotalRecovered.setText(decimalFormat.format(Integer.valueOf(countries.get(0).getRecovered())));
-        NewConfirmed.setText(decimalFormat.format(Integer.valueOf(countries.get(0).getTodayCases())));
-        NewDeaths.setText(decimalFormat.format(Integer.valueOf(countries.get(0).getTodayDeaths())));
+        // set counter-up effect
+        NewConfirmed.setEndValue(Integer.parseInt(countries.get(0).getTodayCases()));
+        NewConfirmed.start();
+        NewDeaths.setEndValue(Integer.parseInt(countries.get(0).getTodayDeaths()));
+        NewDeaths.start();
 
         // make the spinKit gone and other visible
         spin_kit.setVisibility(View.GONE);
@@ -124,6 +132,5 @@ public class HomeFragment extends Fragment {
         parent.setVisibility(View.VISIBLE);
 
     }
-
 
 }

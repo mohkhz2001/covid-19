@@ -129,16 +129,20 @@
                                     android:layout_centerHorizontal="true"
                                     android:textStyle="bold" />
 
-                                <TextView
+                                <com.github.premnirmal.textcounter.CounterView
                                     android:id="@+id/NewConfirmed"
+                                    android:layout_below="@id/txt5"
+                                    android:textColor="@color/textColor1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@id/txt5"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginTop="8dp"
-                                    android:text="5555555"
-                                    android:textColor="@color/textColor1"
+                                    app:autoStart="true"
+                                    app:startValue="0"
+                                    app:incrementValue="500"
+                                    app:timeInterval="5"
+                                    app:type="integer"
                                     android:textStyle="bold"
                                     android:textSize="16sp" />
 
@@ -181,18 +185,22 @@
                                     android:textSize="16sp"
                                     android:textStyle="bold" />
 
-                                <TextView
+                                <com.github.premnirmal.textcounter.CounterView
                                     android:id="@+id/NewDeaths"
+                                    android:layout_below="@id/txt6"
+                                    android:textColor="#E30808"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_below="@id/txt6"
                                     android:layout_centerHorizontal="true"
                                     android:layout_marginLeft="1dp"
                                     android:layout_marginTop="8dp"
-                                    android:text="5555555"
-                                    android:textColor="#E30808"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
+                                    app:autoStart="true"
+                                    app:startValue="0"
+                                    app:incrementValue="50"
+                                    app:timeInterval="10"
+                                    app:type="integer"
+                                    android:textStyle="bold"
+                                    android:textSize="16sp" />
 
 
                             </RelativeLayout>
