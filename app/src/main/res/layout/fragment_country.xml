@@ -18,7 +18,7 @@
             android:id="@+id/parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <RelativeLayout
@@ -112,16 +112,19 @@
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
-                            <TextView
+                            <com.github.premnirmal.textcounter.CounterView
                                 android:id="@+id/txt_patient_number"
+                                android:layout_below="@id/txt_patient"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@id/txt_patient"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/open_sans_bold"
-                                android:text="555555"
-
+                                app:autoStart="true"
+                                app:startValue="0"
+                                app:incrementValue="100"
+                                app:timeInterval="5"
+                                app:type="integer"
                                 android:textColor="@color/textColor1"
                                 android:textSize="18sp" />
 
@@ -164,7 +167,7 @@
                                 android:textSize="20sp"
                                 android:textStyle="bold" />
 
-                            <TextView
+                            <com.github.premnirmal.textcounter.CounterView
                                 android:id="@+id/txt_death_number"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -172,7 +175,11 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="5dp"
                                 android:fontFamily="@font/open_sans_bold"
-                                android:text="555555"
+                                app:autoStart="true"
+                                app:startValue="0"
+                                app:incrementValue="10"
+                                app:timeInterval="1"
+                                app:type="integer"
                                 android:textColor="#FF0000"
                                 android:textSize="18sp" />
 

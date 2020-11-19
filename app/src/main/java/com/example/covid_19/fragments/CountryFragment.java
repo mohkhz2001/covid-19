@@ -22,7 +22,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.covid_19.R;
 import com.example.covid_19.model.Country;
+import com.github.premnirmal.textcounter.CounterView;
 import com.github.ybq.android.spinkit.SpinKitView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -41,7 +43,8 @@ public class CountryFragment extends Fragment {
     String[] countriesName;// the country name for spinner
     RequestQueue requestQueue;
     private Spinner spinner;
-    TextView txt_patient_number, txt_patient_all, txt_death_all, txt_recovered_all, txt_death_number, txt1,connect;
+    TextView txt_patient_all, txt_death_all, txt_recovered_all, txt1, connect;
+    CounterView txt_patient_number, txt_death_number;
     LinearLayout numbers, parent;
     SpinKitView spin_kit;
 
@@ -91,7 +94,7 @@ public class CountryFragment extends Fragment {
 
                     JSONArray jsonArray = new JSONArray(response);
 
-                    Log.e("lentgh" , "aa  " + jsonArray.length() );
+                    Log.e("lentgh", "aa  " + jsonArray.length());
 
                     GsonBuilder gsonBuilder = new GsonBuilder();
                     Gson gson = gsonBuilder.create();
@@ -115,7 +118,7 @@ public class CountryFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", "connection failed" + " ");
-                Toast.makeText(getContext() ,"اتصال اینترنت را چک کنید" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "اتصال اینترنت را چک کنید", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -143,9 +146,9 @@ public class CountryFragment extends Fragment {
     // set the spinner value ==> country name
     private void Spinner(List<Country> countries1) {
         //Creating the ArrayAdapter instance having the country list
-        countriesName = new String[countries.size()-1];
-        int counter=1;
-        for (int i = 0; i < countries1.size()-1; i++) {
+        countriesName = new String[countries.size() - 1];
+        int counter = 1;
+        for (int i = 0; i < countries1.size() - 1; i++) {
             countriesName[i] = countries1.get(counter).getCountry();
             counter++;
         }
@@ -160,12 +163,16 @@ public class CountryFragment extends Fragment {
     private void ShowInfo(int i) {
         DecimalFormat decimalFormat = new DecimalFormat("###,###");
         i++;
-        txt_patient_number.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getTodayCases())));
-        txt_death_number.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getTodayDeaths())));
+
         txt_patient_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getCases())));
         txt_death_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getDeaths())));
         txt_recovered_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getRecovered())));
 
+        //set counter-uo effect
+        txt_patient_number.setEndValue(Integer.parseInt(countries.get(i).getTodayCases()));
+        txt_patient_number.start();
+        txt_death_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
+        txt_death_number.start();
     }
 
     // json array example
