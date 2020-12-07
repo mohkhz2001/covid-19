@@ -1,5 +1,7 @@
 package com.example.covid_19.fragments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -43,9 +47,10 @@ public class CountryFragment extends Fragment {
     String[] countriesName;// the country name for spinner
     RequestQueue requestQueue;
     private Spinner spinner;
-    TextView txt_patient_all, txt_death_all, txt_recovered_all, txt1, connect;
+    TextView txt_patient_all, txt_death_all, txt_recovered_all, connect, txt_search, txt_24_hours, txt_Total_country;
+    CardView total_infected_card, total_recovered_card, Total_death_card, death_cardview, infected_cardView;
     CounterView txt_patient_number, txt_death_number;
-    LinearLayout numbers, parent;
+    RelativeLayout relative_top, relative_main, spinner_layout;
     SpinKitView spin_kit;
 
     private String url_api = "https://coronavirus-19-api.herokuapp.com/countries";// API url
@@ -71,15 +76,23 @@ public class CountryFragment extends Fragment {
 
     // make the component as new
     private void InitViews() {
+        death_cardview = view.findViewById(R.id.death_cardview);
+        infected_cardView = view.findViewById(R.id.infected_cardView);
+        spinner_layout = view.findViewById(R.id.spinner_layout);
+        txt_search = view.findViewById(R.id.txt_search);
+        txt_24_hours = view.findViewById(R.id.txt_24_hours);
+        txt_Total_country = view.findViewById(R.id.txt_Total_country);
+        total_infected_card = view.findViewById(R.id.total_infected_card);
+        total_recovered_card = view.findViewById(R.id.total_recovered_card);
+        Total_death_card = view.findViewById(R.id.Total_death_card);
+        relative_top = view.findViewById(R.id.relative_top);
+        relative_main = view.findViewById(R.id.relative_main);
         spinner = view.findViewById(R.id.spinner);
         txt_patient_number = view.findViewById(R.id.txt_patient_number);
         txt_death_number = view.findViewById(R.id.txt_death_number);
-        numbers = view.findViewById(R.id.numbers);
-        txt1 = view.findViewById(R.id.txt1);
         txt_patient_all = view.findViewById(R.id.txt_patient_all);
         txt_death_all = view.findViewById(R.id.txt_death_all);
         txt_recovered_all = view.findViewById(R.id.txt_recovered_all);
-        parent = view.findViewById(R.id.parent);
         spin_kit = view.findViewById(R.id.spin_kit);
         connect = view.findViewById(R.id.connect);
 
@@ -91,7 +104,6 @@ public class CountryFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 try {
-
                     JSONArray jsonArray = new JSONArray(response);
 
                     Log.e("lentgh", "aa  " + jsonArray.length());
@@ -104,10 +116,22 @@ public class CountryFragment extends Fragment {
                         countries.add(country);
                     }
 
-                    parent.setVisibility(View.VISIBLE);
+
                     spin_kit.setVisibility(View.GONE);
                     connect.setVisibility(View.GONE);
+                    txt_search.setVisibility(View.VISIBLE);
+                    txt_24_hours.setVisibility(View.VISIBLE);
+                    txt_Total_country.setVisibility(View.VISIBLE);
+                    total_infected_card.setVisibility(View.VISIBLE);
+                    total_recovered_card.setVisibility(View.VISIBLE);
+                    Total_death_card.setVisibility(View.VISIBLE);
+                    relative_top.setVisibility(View.VISIBLE);
+                    relative_main.setVisibility(View.VISIBLE);
+                    spinner_layout.setVisibility(View.VISIBLE);
+                    death_cardview.setVisibility(View.VISIBLE);
+                    infected_cardView.setVisibility(View.VISIBLE);
                     Spinner(countries);
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -118,7 +142,9 @@ public class CountryFragment extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("Error", "connection failed" + " ");
-                Toast.makeText(getContext(), "اتصال اینترنت را چک کنید", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "check the internet connection...", Toast.LENGTH_SHORT).show();
+                alertDialog();// alert for connection
+
             }
         });
 
@@ -131,8 +157,7 @@ public class CountryFragment extends Fragment {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                numbers.setVisibility(View.VISIBLE);
-                txt1.setVisibility(View.VISIBLE);
+
                 ShowInfo(i);
             }
 
@@ -153,8 +178,14 @@ public class CountryFragment extends Fragment {
             counter++;
         }
 
-        ArrayAdapter aa = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, countriesName);
-        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter aa = null;
+        try {
+            aa = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item, countriesName);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        if (aa != null)
+            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Setting the ArrayAdapter data on the Spinner
         spinner.setAdapter(aa);
     }
@@ -164,15 +195,40 @@ public class CountryFragment extends Fragment {
         DecimalFormat decimalFormat = new DecimalFormat("###,###");
         i++;
 
-        txt_patient_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getCases())));
-        txt_death_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getDeaths())));
-        txt_recovered_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getRecovered())));
+        try {
+            txt_patient_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getCases())));
+            txt_death_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getDeaths())));
+            txt_recovered_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getRecovered())));
 
-        //set counter-uo effect
-        txt_patient_number.setEndValue(Integer.parseInt(countries.get(i).getTodayCases()));
-        txt_patient_number.start();
-        txt_death_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
-        txt_death_number.start();
+            //set counter-uo effect
+
+            txt_patient_number.setEndValue(Integer.parseInt(countries.get(i).getTodayCases()));
+            txt_patient_number.start();
+            txt_death_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
+            txt_death_number.start();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
+    }
+
+    // when error in connection
+    private void alertDialog() {
+        try {
+            AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+            alertDialog.setTitle("Alert");
+            alertDialog.setMessage("Alert message to be shown");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "reconnect",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            ApiRequest();
+                        }
+                    });
+            alertDialog.show();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     // json array example
