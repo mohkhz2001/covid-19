@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgrand"
     tools:context=".HomeActivity">
 
 
@@ -24,7 +23,7 @@
         app:menu="@menu/main_menu"
         app:itemTextColor="@drawable/bg_nav_selected"
         app:itemIconTint="@drawable/bg_nav_selected"
-        android:background="@drawable/bg_navigation"
+        android:background="@drawable/bg_navigation1"
         />
 
     </RelativeLayout>
