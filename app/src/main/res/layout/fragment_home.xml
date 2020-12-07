@@ -1,419 +1,446 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgrand"
-    android:layoutDirection="rtl"
-    android:padding="8dp"
-    tools:context=".fragments.HomeFragment">
-
-
-    <ScrollView
+    android:fillViewport="true"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context=".fragments.HomeFragment">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".20" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <RelativeLayout
+            android:id="@+id/relative_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_top"
             android:visibility="gone"
-            android:id="@+id/parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            app:layout_constraintBottom_toTopOf="@+id/guideline1"
+            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Based on global Datas"
+                android:textSize="24sp"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_main"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_main"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline19">
+
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.34" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6593674" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.79" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.02189781" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.0998632" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.55" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98053527" />
+
+        <TextView
+            android:id="@+id/txt_24_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of the last 24 hours"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/death_cardview"
+            android:layout_width="0dp"
+            android:layout_height="183dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline20"
+            app:layout_constraintEnd_toStartOf="@+id/guideline17"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/txt_24_hours">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/two"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#fff"
-                    app:cardCornerRadius="16dp">
-
-                    <RelativeLayout
-                        android:background="#03A9F4"
-                        android:id="@+id/one"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="8dp">
-
-                        <ImageView
-                            android:id="@+id/img_1"
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:layout_marginRight="8dp"
-                            app:srcCompat="@drawable/virus" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="45dp"
-                            android:layout_marginLeft="8dp"
-                            android:layout_marginTop="12dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_toLeftOf="@id/img_1"
-                            android:fontFamily="@font/roboto_bold"
-                            android:text="آمار منتشر شده بر اساس آمار جهانی است."
-                            android:textColor="@color/textColor1"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-
-                    </RelativeLayout>
-
-
-                </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_death">
 
                 <TextView
-                    android:id="@+id/txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/two"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="آمار مبتلایان طی 24 ساعت گذشته:"
-                    android:textColor="@color/textColor"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/layout_day"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/txt"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
+                    android:layout_above="@id/NewDeaths"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="Deaths"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
 
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:weightSum="2"
-                        >
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_marginLeft="8dp"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            app:cardBackgroundColor="#fff"
-                            app:cardCornerRadius="10dp">
-
-                            <RelativeLayout
-                                android:background="#FA1010"
-                                android:padding="10dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/img2"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"
-                                    android:layout_marginRight="8dp"
-                                    app:srcCompat="@drawable/patient1" />
-
-                                <TextView
-                                    android:id="@+id/txt5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/img2"
-                                    android:layout_marginTop="15dp"
-                                    android:layout_marginRight="1dp"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:text="مبتلا شدگان:"
-                                    android:textColor="@color/textColor1"
-                                    android:textSize="16sp"
-                                    android:layout_centerHorizontal="true"
-                                    android:textStyle="bold" />
-
-                                <com.github.premnirmal.textcounter.CounterView
-                                    android:id="@+id/NewConfirmed"
-                                    android:layout_below="@id/txt5"
-                                    android:textColor="@color/textColor1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="1dp"
-                                    android:layout_marginTop="8dp"
-                                    app:autoStart="true"
-                                    app:startValue="0"
-                                    app:incrementValue="500"
-                                    app:timeInterval="5"
-                                    app:type="integer"
-                                    android:textStyle="bold"
-                                    android:textSize="16sp" />
-
-
-                            </RelativeLayout>
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_weight="1"
-                            app:cardCornerRadius="10dp"
-                            android:layout_width="0dp"
-                            app:cardBackgroundColor="#fff"
-                            android:layout_height="wrap_content">
-
-                            <RelativeLayout
-                                android:background="#0C0505"
-                                android:padding="10dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/img4"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginTop="5dp"
-                                    app:srcCompat="@drawable/death" />
-
-                                <TextView
-                                    android:id="@+id/txt6"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@id/img4"
-                                    android:layout_marginTop="15dp"
-                                    android:layout_marginRight="5dp"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:text="فوت شدگان:"
-                                    android:textColor="#E30808"
-                                    android:textSize="16sp"
-                                    android:textStyle="bold" />
-
-                                <com.github.premnirmal.textcounter.CounterView
-                                    android:id="@+id/NewDeaths"
-                                    android:layout_below="@id/txt6"
-                                    android:textColor="#E30808"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerHorizontal="true"
-                                    android:layout_marginLeft="1dp"
-                                    android:layout_marginTop="8dp"
-                                    app:autoStart="true"
-                                    app:startValue="0"
-                                    app:incrementValue="50"
-                                    app:timeInterval="10"
-                                    app:type="integer"
-                                    android:textStyle="bold"
-                                    android:textSize="16sp" />
-
-
-                            </RelativeLayout>
-
-                        </androidx.cardview.widget.CardView>
-
-
-                    </LinearLayout>
-
-
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txt_all"
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/NewDeaths"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/layout_day"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="آمار کلی مربوط به covid-19:"
-                    android:textColor="@color/textColor"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_below="@id/txt_all"
-                    android:layout_marginTop="10dp"
-                    android:weightSum="3">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="#FA1010"
-                        app:cardCornerRadius="8dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/img5"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="26dp"
-                                app:srcCompat="@drawable/patient" />
-
-                            <TextView
-                                android:id="@+id/txt2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/img5"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="مبتلایان"
-                                android:textColor="@color/textColor1"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/TotalConfirmed"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/txt2"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="5555555"
-                                android:textColor="@color/textColor1"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="#2ADA16"
-                        app:cardCornerRadius="8dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/img6"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                app:srcCompat="@drawable/recovery"
-
-                                />
-
-                            <TextView
-                                android:id="@+id/txt3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/img6"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="بهبود یافتگان"
-                                android:textColor="@color/textColor1"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/TotalRecovered"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/txt3"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="55555555"
-                                android:textColor="@color/textColor1"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="#0C0505"
-                        app:cardCornerRadius="8dp">
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-
-                            <ImageView
-                                android:id="@+id/img7"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                app:srcCompat="@drawable/death1"
-
-                                />
-
-                            <TextView
-                                android:id="@+id/txt4"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/img7"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="فوت شدگان"
-                                android:textColor="#E30808"
-                                android:textSize="16sp" />
-
-                            <TextView
-                                android:id="@+id/TotalDeaths"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/txt4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="555555"
-                                android:textColor="#E30808"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </RelativeLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="5555555"
+                    android:textColor="#fff"
+                    android:textSize="22dp"
+                    app:autoStart="true"
+                    app:incrementValue="500"
+                    app:startValue="0"
+                    app:timeInterval="10"
+                    app:type="integer" />
             </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
+        </androidx.cardview.widget.CardView>
 
-    <com.github.ybq.android.spinkit.SpinKitView
-        android:layout_centerInParent="true"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Wave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        app:SpinKit_Color="@color/colorPrimaryDark" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/infected_cardView"
+            android:layout_width="0dp"
+            android:layout_height="183dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline20"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline17"
+            app:layout_constraintTop_toBottomOf="@+id/txt_24_hours">
 
-    <TextView
-        android:id="@+id/connect"
-        android:visibility="visible"
-        android:layout_below="@id/spin_kit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="connecting..."
-        android:textSize="20dp"
-        android:layout_marginTop="5dp"
-        />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_newconfirmed">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/NewConfirmed"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="infected"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
+
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/NewConfirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="5555555"
+                    android:textColor="#fff"
+                    android:textSize="22dp"
+                    app:autoStart="true"
+                    app:incrementValue="5000"
+                    app:startValue="0"
+                    app:timeInterval="5"
+                    app:type="integer" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txt_Total_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:text="Total Data Covid 19"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Total_death_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline10"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Total_country">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_death">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/TotalDeaths"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="Deaths"
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/TotalDeaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="5555555"
+                    android:textColor="#fff"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_recovered_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+            app:layout_constraintStart_toStartOf="@+id/guideline10"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Total_country">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_death">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/TotalRecovered"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="Recovered"
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/TotalRecovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="5555555"
+                    android:textColor="#fff"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_infected_card"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:visibility="gone"
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline5"
+            app:layout_constraintStart_toStartOf="@+id/guideline11"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Total_country">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_death">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/TotalConfirmed"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="infected"
+                    android:textColor="#fff"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/TotalConfirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="5555555"
+                    android:textColor="#fff"
+                    android:textSize="16dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".51" />
 
 
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Wave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spin_kit"
+            android:layout_centerInParent="true"
+            android:text="connecting..."
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/spin_kit" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
