@@ -1,404 +1,457 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/backgrand"
-    android:layoutDirection="rtl"
-    tools:context=".fragments.CountryFragment">
+    android:fillViewport="true"
+    android:layout_height="match_parent">
 
-    <ScrollView
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        tools:context=".HomeActivity">
 
-        <LinearLayout
-            android:id="@+id/parent"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".0" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".20" />
 
-            <RelativeLayout
-                android:id="@+id/top"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <RelativeLayout
+            android:id="@+id/relative_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_top"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline1"
+            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp">
+                android:layout_centerInParent="true"
+                android:text="Data of each Country"
+                android:textSize="24sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_main"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="@drawable/bg_main"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline19">
+
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".13" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".02" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <TextView
+            android:id="@+id/txt_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search your country"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="@+id/guideline1" />
+
+        <RelativeLayout
+            android:id="@+id/spinner_layout"
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline22"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintStart_toStartOf="@+id/guideline23"
+            app:layout_constraintTop_toBottomOf="@+id/txt_search">
+
+            <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/spinner"
+                android:padding="4dp"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textDirection="ltr"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/txt_24_hours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date of the last 24 hours"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="@+id/guideline14" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/death_cardview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline21"
+            app:layout_constraintEnd_toStartOf="@+id/guideline17"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/txt_24_hours">
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_death">
+
 
                 <TextView
-                    android:id="@+id/txt_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/roboto_bold"
-                    android:text="کشور مورد نظر را انتخاب کنید: "
-                    android:textColor="@color/textColor1"
-                    android:textSize="20dp"
+                    android:layout_above="@id/txt_death_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="Deaths"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-                    android:textStyle="bold" />
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/txt_death_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="TextView"
+                    android:textColor="#fff"
+                    android:textSize="22dp"
+                    app:autoStart="true"
+                    app:incrementValue="5000"
+                    app:startValue="0"
+                    app:timeInterval="5"
+                    app:type="integer" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
-                    android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_below="@+id/txt_country"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_spinner"
-                    android:padding="10dp"
-                    android:spinnerMode="dialog"
-                    android:textAlignment="center"
-                    android:textDirection="ltr"
-                    android:visibility="visible" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/infected_cardView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            app:cardCornerRadius="30dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline21"
+            app:layout_constraintEnd_toStartOf="@+id/guideline8"
+            app:layout_constraintStart_toStartOf="@+id/guideline17"
+            app:layout_constraintTop_toBottomOf="@+id/txt_24_hours">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_newconfirmed">
+
 
                 <TextView
-                    android:id="@+id/txt1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/spinner"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="آمار 24 ساعت گذشته: "
-                    android:textColor="@color/textColor1"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:visibility="visible" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/txt_patient_number"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="5dp"
+                    android:text="Infected"
+                    android:textColor="#fff"
+                    android:textSize="20sp" />
 
-                <LinearLayout
-                    android:id="@+id/numbers"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/txt1"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="4dp"
-                    android:visibility="visible"
-                    android:weightSum="2">
+                <com.github.premnirmal.textcounter.CounterView
+                    android:id="@+id/txt_patient_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="15dp"
+                    android:text="TextView"
+                    android:textColor="#fff"
+                    android:textSize="22dp"
+                    app:autoStart="true"
+                    app:incrementValue="5000"
+                    app:startValue="0"
+                    app:timeInterval="5"
+                    app:type="integer" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:layout_weight="1"
-                        android:background="#fff"
-                        app:cardBackgroundColor="#FA1010"
-                        app:cardCornerRadius="10dp">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".32" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp">
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".63" />
 
-                            <ImageView
-                                android:id="@+id/img_Patients"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_margin="8dp"
-                                app:srcCompat="@drawable/patient1" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".30" />
 
-                            <TextView
-                                android:id="@+id/txt_patient"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/img_Patients"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="مبتلایان امروز:"
-                                android:textColor="@color/textColor1"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".05" />
 
-                            <com.github.premnirmal.textcounter.CounterView
-                                android:id="@+id/txt_patient_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/txt_patient"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:textColor="@color/textColor1"
-                                android:textSize="18sp"
-                                app:autoStart="true"
-                                app:incrementValue="100"
-                                app:startValue="0"
-                                app:timeInterval="5"
-                                app:type="integer" />
-
-                        </RelativeLayout>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent=".95" />
 
 
-                    </androidx.cardview.widget.CardView>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".66" />
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="8dp"
-                        android:layout_weight="1"
-                        app:cardBackgroundColor="#000000"
-                        app:cardCornerRadius="10dp">
+        <TextView
+            android:id="@+id/txt_Total_country"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Data of yout country"
+            android:textColor="#000"
+            android:textSize="24sp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toTopOf="@+id/guideline25" />
 
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:padding="5dp">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_infected_card"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintStart_toStartOf="@+id/guideline23"
+            app:layout_constraintTop_toBottomOf="@+id/txt_Total_country">
 
-                            <ImageView
-                                android:id="@+id/img_death"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_margin="8dp"
-                                app:srcCompat="@drawable/death" />
-
-                            <TextView
-                                android:id="@+id/txt_death"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/img_death"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:text="فوت شدگان: "
-                                android:textColor="#FF0000"
-                                android:textSize="20sp"
-                                android:textStyle="bold" />
-
-                            <com.github.premnirmal.textcounter.CounterView
-                                android:id="@+id/txt_death_number"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@id/txt_death"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="5dp"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:textColor="#FF0000"
-                                android:textSize="18sp"
-                                app:autoStart="true"
-                                app:incrementValue="10"
-                                app:startValue="0"
-                                app:timeInterval="1"
-                                app:type="integer" />
-
-                        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_infected">
 
 
-                    </androidx.cardview.widget.CardView>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@id/numbers">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/txt_all"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:fontFamily="@font/roboto_medium"
-                            android:text="آمار کلی کرونا: "
-                            android:textColor="@color/textColor1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/patient_all"
-                            android:layout_width="match_parent"
-                            android:layout_height="90dp"
-                            android:layout_below="@id/txt_all"
-                            android:layout_marginTop="10dp"
-                            app:cardBackgroundColor="#FA1010"
-                            app:cardCornerRadius="16sp">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="8dp">
-
-                                <ImageView
-                                    android:id="@+id/img_Patients_all"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_centerVertical="true"
-                                    app:srcCompat="@drawable/patient" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginRight="20sp"
-                                    android:layout_toLeftOf="@id/img_Patients_all"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:text="مبتلایان :"
-                                    android:textColor="@color/textColor1"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/txt_patient_all"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentLeft="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginLeft="25dp"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:gravity="left"
-                                    android:text="5555545"
-                                    android:textColor="@color/textColor1"
-                                    android:textSize="18sp" />
-
-
-                            </RelativeLayout>
-
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:id="@+id/recovered_all"
-                            android:layout_width="match_parent"
-                            android:layout_height="90dp"
-                            android:layout_below="@id/patient_all"
-                            android:layout_marginTop="10dp"
-                            app:cardBackgroundColor="#2ADA16"
-                            app:cardCornerRadius="16sp">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="8dp">
-
-                                <ImageView
-                                    android:id="@+id/img_recovered_all"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_centerVertical="true"
-                                    app:srcCompat="@drawable/recovery" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginRight="20sp"
-                                    android:layout_toLeftOf="@id/img_recovered_all"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:text="بهبود یافتگان :"
-                                    android:textColor="@color/textColor1"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/txt_recovered_all"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentLeft="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginLeft="25dp"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:gravity="left"
-                                    android:text="5555545"
-                                    android:textColor="@color/textColor1"
-                                    android:textSize="18sp" />
-
-
-                            </RelativeLayout>
-
-
-                        </androidx.cardview.widget.CardView>
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="match_parent"
-                            android:layout_height="90dp"
-                            android:layout_below="@id/recovered_all"
-                            android:layout_marginTop="10dp"
-                            app:cardBackgroundColor="#000000"
-                            app:cardCornerRadius="16sp">
-
-                            <RelativeLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_margin="8dp">
-
-                                <ImageView
-                                    android:id="@+id/img_death_all"
-                                    android:layout_width="70dp"
-                                    android:layout_height="70dp"
-                                    android:layout_centerVertical="true"
-                                    app:srcCompat="@drawable/death1" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginRight="20sp"
-                                    android:layout_toLeftOf="@id/img_death_all"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:text="فوت شدگان :"
-                                    android:textColor="#FF0000"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:id="@+id/txt_death_all"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentLeft="true"
-                                    android:layout_centerVertical="true"
-                                    android:layout_marginLeft="25dp"
-                                    android:fontFamily="@font/open_sans_bold"
-                                    android:gravity="left"
-                                    android:text="5555545"
-                                    android:textColor="#FF0000"
-                                    android:textSize="18sp" />
-
-
-                            </RelativeLayout>
-
-
-                        </androidx.cardview.widget.CardView>
-
-
-                    </RelativeLayout>
-
-
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/txt_patient_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="TextView"
+                    android:textSize="16sp" />
 
             </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
-        </LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_recovered_card"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintStart_toStartOf="@+id/guideline23"
+            app:layout_constraintTop_toBottomOf="@+id/total_infected_card">
 
-
-    </ScrollView>
-
-    <com.github.ybq.android.spinkit.SpinKitView xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/spin_kit"
-        style="@style/SpinKitView.Wave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_gravity="center"
-        app:SpinKit_Color="@color/colorPrimaryDark" />
-
-    <TextView
-        android:id="@+id/connect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spin_kit"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
-        android:text="connecting..."
-        android:textSize="20dp"
-        android:visibility="visible" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_recovered_country">
 
 
-</RelativeLayout>
+                <TextView
+                    android:id="@+id/txt_recovered_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="TextView"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/Total_death_card"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline24"
+            app:layout_constraintStart_toStartOf="@+id/guideline23"
+            app:layout_constraintTop_toBottomOf="@+id/total_recovered_card">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_deaths_country">
+
+
+                <TextView
+                    android:id="@+id/txt_death_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginBottom="13dp"
+                    android:text="TextView"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Wave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorPrimaryDark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+        <TextView
+            android:id="@+id/connect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spin_kit"
+            android:layout_centerInParent="true"
+            android:text="connecting..."
+            android:textSize="20dp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spin_kit" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
+
+
