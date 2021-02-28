@@ -141,9 +141,14 @@ public class CountryFragment extends Fragment {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("Error", "connection failed" + " ");
-                Toast.makeText(getContext(), "check the internet connection...", Toast.LENGTH_SHORT).show();
-                alertDialog();// alert for connection
+                try {
+
+                    Log.d("Error", "connection failed" + " ");
+                    Toast.makeText(getContext(), "check the internet connection...", Toast.LENGTH_SHORT).show();
+                    alertDialog();// alert for connection
+                }catch (Exception e){
+                    e.getMessage();
+                }
 
             }
         });
