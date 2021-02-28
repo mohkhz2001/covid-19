@@ -9,7 +9,7 @@ this Android Application show Country Statistics
 ![photo_2021-02-28_22-28-50](https://user-images.githubusercontent.com/56700076/109430123-dd8ef400-7a14-11eb-887f-f1bb843edba1.jpg)
 ![photo_2021-02-28_22-28-45](https://user-images.githubusercontent.com/56700076/109430127-dff14e00-7a14-11eb-9202-108e17e2ef8b.jpg)
 
-# REFRENCE : dizzy
+# REFRENCE : 
 [https://disease.sh/](url)
 
 # APPLICATION POSSIBILITIES
