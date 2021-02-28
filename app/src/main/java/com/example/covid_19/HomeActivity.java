@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.covid_19.fragments.CountryFragment;
+import com.example.covid_19.fragments.HistoryFragment;
 import com.example.covid_19.fragments.HomeFragment;
+import com.example.covid_19.fragments.NewsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -54,6 +56,30 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.frameLayout, countryFragment);
             fragmentTransaction.commit();
+        }
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        switch (item.getItemId()) {
+            case R.id.nav_home:
+                HomeFragment homeFragment = new HomeFragment();
+                fragmentTransaction.replace(R.id.frameLayout, homeFragment);
+                fragmentTransaction.commit();
+                break;
+            case R.id.nav_country:
+                CountryFragment countryFragment = new CountryFragment();
+                fragmentTransaction.replace(R.id.frameLayout, countryFragment);
+                fragmentTransaction.commit();
+                break;
+            case R.id.nav_history:
+                HistoryFragment historyFragment = new HistoryFragment();
+                fragmentTransaction.replace(R.id.frameLayout, historyFragment);
+                fragmentTransaction.commit();
+                break;
+            case R.id.nav_news:
+                NewsFragment newsFragment = new NewsFragment();
+                fragmentTransaction.replace(R.id.frameLayout, newsFragment);
+                fragmentTransaction.commit();
+                break;
+
         }
         return true;
     }
