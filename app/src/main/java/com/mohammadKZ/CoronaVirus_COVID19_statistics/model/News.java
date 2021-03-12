@@ -1,4 +1,4 @@
-package com.mohammadKZ.oronavirus_COVID19_statistics.model;
+package com.mohammadKZ.CoronaVirus_COVID19_statistics.model;
 
 public class News {
 

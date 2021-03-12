@@ -1,4 +1,4 @@
-package com.mohammadKZ.oronavirus_COVID19_statistics.Adapter;
+package com.mohammadKZ.CoronaVirus_COVID19_statistics.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.covid_19.R;
-import com.mohammadKZ.oronavirus_COVID19_statistics.model.History;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.model.History;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

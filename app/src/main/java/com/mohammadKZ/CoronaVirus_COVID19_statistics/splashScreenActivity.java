@@ -1,4 +1,4 @@
-package com.mohammadKZ.oronavirus_COVID19_statistics;
+package com.mohammadKZ.CoronaVirus_COVID19_statistics;
 
 import android.content.Intent;
 import android.os.Bundle;
