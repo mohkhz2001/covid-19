@@ -1,4 +1,4 @@
-package com.mohammadKZ.oronavirus_COVID19_statistics.fragments;
+package com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -27,10 +27,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.mohammadKZ.oronavirus_COVID19_statistics.Adapter.HistoryAdapter;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.Adapter.HistoryAdapter;
 import com.example.covid_19.R;
-import com.mohammadKZ.oronavirus_COVID19_statistics.model.Country;
-import com.mohammadKZ.oronavirus_COVID19_statistics.model.History;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.model.Country;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.model.History;
 import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
