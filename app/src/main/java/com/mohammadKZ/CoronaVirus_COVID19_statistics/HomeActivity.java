@@ -1,4 +1,4 @@
-package com.mohammadKZ.oronavirus_COVID19_statistics;
+package com.mohammadKZ.CoronaVirus_COVID19_statistics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -12,12 +12,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.covid_19.R;
-import com.mohammadKZ.oronavirus_COVID19_statistics.StartUp.WearMaskFragment;
-import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.AboutFragment;
-import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.CountryFragment;
-import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.HistoryFragment;
-import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.HomeFragment;
-import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.NewsFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.StartUp.WearMaskFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments.AboutFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments.CountryFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments.HistoryFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments.HomeFragment;
+import com.mohammadKZ.CoronaVirus_COVID19_statistics.fragments.NewsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
