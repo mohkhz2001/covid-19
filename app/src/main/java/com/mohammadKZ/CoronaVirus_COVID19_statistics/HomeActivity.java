@@ -1,18 +1,23 @@
-package com.example.covid_19;
+package com.mohammadKZ.oronavirus_COVID19_statistics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
-import com.example.covid_19.fragments.CountryFragment;
-import com.example.covid_19.fragments.HistoryFragment;
-import com.example.covid_19.fragments.HomeFragment;
-import com.example.covid_19.fragments.NewsFragment;
+import com.example.covid_19.R;
+import com.mohammadKZ.oronavirus_COVID19_statistics.StartUp.WearMaskFragment;
+import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.AboutFragment;
+import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.CountryFragment;
+import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.HistoryFragment;
+import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.HomeFragment;
+import com.mohammadKZ.oronavirus_COVID19_statistics.fragments.NewsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
@@ -30,8 +35,10 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
         actionBar.hide();
 
         InitViews();
-        start();
+//        start();
+//        StartUp();
         ViewsController();
+        sharedPreferences();
     }
 
     private void InitViews() {
@@ -79,17 +86,50 @@ public class HomeActivity extends AppCompatActivity implements BottomNavigationV
                 fragmentTransaction.replace(R.id.frameLayout, newsFragment);
                 fragmentTransaction.commit();
                 break;
+            case R.id.about:
+                AboutFragment aboutFragment = new AboutFragment();
+                fragmentTransaction.replace(R.id.frameLayout, aboutFragment);
+                fragmentTransaction.commit();
+                break;
 
         }
         return true;
     }
 
     private void start() {
+        navigation = findViewById(R.id.navigation);
+        navigation.setVisibility(View.VISIBLE);
 
         HomeFragment homeFragment = new HomeFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout, homeFragment);
         fragmentTransaction.commit();
+    }
+
+    private void StartUp() {
+        WearMaskFragment wearMaskFragment = new WearMaskFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout, wearMaskFragment);
+        fragmentTransaction.commit();
+    }
+
+    //read sharedPreferences (start-up)
+    private void sharedPreferences() {
+        // Retrieving the value using its keys the file name
+        // must be same in both saving and retrieving the data
+        SharedPreferences sh = getSharedPreferences("start-up", MODE_PRIVATE);
+
+        // The value will be default as empty string because for
+        // the very first time when the app is opened, there is nothing to show
+        String start_up = sh.getString("start-up", "false");
+
+        // We can then use the data
+        if (start_up.equals("false")) {
+            StartUp();
+        } else if (start_up.equals("true")) {
+            start();
+        }
+
     }
 
 }

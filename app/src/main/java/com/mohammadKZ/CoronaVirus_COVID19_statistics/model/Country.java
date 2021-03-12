@@ -1,10 +1,10 @@
-package com.example.covid_19.model;
+package com.mohammadKZ.oronavirus_COVID19_statistics.model;
 
 public class Country {
 
-    private String country,  todayCases, cases, todayDeaths, deaths, recovered, active  ;
+    private String country, todayCases, cases, todayDeaths, deaths, recovered, active, todayRecovered, flag;
 
-    public Country(String country, String todayCases, String cases, String todayDeaths, String deaths, String recovered, String active) {
+    public Country(String country, String todayCases, String cases, String todayDeaths, String deaths, String recovered, String active, String todayRecovered, String flag) {
         this.country = country;
         this.todayCases = todayCases;
         this.cases = cases;
@@ -12,6 +12,24 @@ public class Country {
         this.deaths = deaths;
         this.recovered = recovered;
         this.active = active;
+        this.todayRecovered = todayRecovered;
+        this.flag = flag;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public String getTodayRecovered() {
+        return todayRecovered;
+    }
+
+    public void setTodayRecovered(String todayRecovered) {
+        this.todayRecovered = todayRecovered;
     }
 
     public String getCountry() {

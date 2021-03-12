@@ -1,4 +1,4 @@
-package com.example.covid_19.model;
+package com.mohammadKZ.oronavirus_COVID19_statistics.model;
 
 public class History {
     String date;

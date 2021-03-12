@@ -1,4 +1,4 @@
-package com.example.covid_19.Adapter;
+package com.mohammadKZ.oronavirus_COVID19_statistics.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,8 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.covid_19.R;
-import com.example.covid_19.model.History;
-import com.example.covid_19.model.News;
+import com.mohammadKZ.oronavirus_COVID19_statistics.model.News;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

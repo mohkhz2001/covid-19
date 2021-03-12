@@ -1,4 +1,4 @@
-package com.example.covid_19.fragments;
+package com.mohammadKZ.oronavirus_COVID19_statistics.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,13 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.android.volley.Request;
@@ -25,12 +24,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.covid_19.R;
-import com.example.covid_19.model.Country;
+import com.mohammadKZ.oronavirus_COVID19_statistics.model.Country;
 import com.github.premnirmal.textcounter.CounterView;
 import com.github.ybq.android.spinkit.SpinKitView;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,13 +46,13 @@ public class CountryFragment extends Fragment {
     String[] countriesName;// the country name for spinner
     RequestQueue requestQueue;
     private Spinner spinner;
-    TextView txt_patient_all, txt_death_all, txt_recovered_all, connect, txt_search, txt_24_hours, txt_Total_country;
-    CardView total_infected_card, total_recovered_card, Total_death_card, death_cardview, infected_cardView;
-    CounterView txt_patient_number, txt_death_number;
-    RelativeLayout relative_top, relative_main, spinner_layout;
+    TextView txt_patient_all, txt_death_all, txt_recovered_all, connect , countryName;
+    CounterView txt_patient_number, txt_death_number , txt_Recovered_number;
     SpinKitView spin_kit;
+    ConstraintLayout constraintLayout;
+    ImageView flag;
 
-    private String url_api = "https://coronavirus-19-api.herokuapp.com/countries";// API url
+    private String url_api = "https://disease.sh/v3/covid-19/countries";// API url
 
     public CountryFragment() {
         // Required empty public constructor
@@ -76,17 +75,6 @@ public class CountryFragment extends Fragment {
 
     // make the component as new
     private void InitViews() {
-        death_cardview = view.findViewById(R.id.death_cardview);
-        infected_cardView = view.findViewById(R.id.infected_cardView);
-        spinner_layout = view.findViewById(R.id.spinner_layout);
-        txt_search = view.findViewById(R.id.txt_search);
-        txt_24_hours = view.findViewById(R.id.txt_24_hours);
-        txt_Total_country = view.findViewById(R.id.txt_Total_country);
-        total_infected_card = view.findViewById(R.id.total_infected_card);
-        total_recovered_card = view.findViewById(R.id.total_recovered_card);
-        Total_death_card = view.findViewById(R.id.Total_death_card);
-        relative_top = view.findViewById(R.id.relative_top);
-        relative_main = view.findViewById(R.id.relative_main);
         spinner = view.findViewById(R.id.spinner);
         txt_patient_number = view.findViewById(R.id.txt_patient_number);
         txt_death_number = view.findViewById(R.id.txt_death_number);
@@ -95,6 +83,10 @@ public class CountryFragment extends Fragment {
         txt_recovered_all = view.findViewById(R.id.txt_recovered_all);
         spin_kit = view.findViewById(R.id.spin_kit);
         connect = view.findViewById(R.id.connect);
+        constraintLayout = view.findViewById(R.id.constraintLayout);
+        txt_Recovered_number = view.findViewById(R.id.txt_Recovered_number);
+        flag = view.findViewById(R.id.flag);
+        countryName = view.findViewById(R.id.countryName);
 
     }
 
@@ -113,23 +105,14 @@ public class CountryFragment extends Fragment {
 
                     for (int i = 0; i < jsonArray.length(); i++) {
                         Country country = gson.fromJson(String.valueOf(jsonArray.getJSONObject(i)), Country.class);
+                        country.setFlag(jsonArray.getJSONObject(i).getJSONObject("countryInfo").getString("flag"));
                         countries.add(country);
                     }
 
-
+                    System.out.println();
                     spin_kit.setVisibility(View.GONE);
                     connect.setVisibility(View.GONE);
-                    txt_search.setVisibility(View.VISIBLE);
-                    txt_24_hours.setVisibility(View.VISIBLE);
-                    txt_Total_country.setVisibility(View.VISIBLE);
-                    total_infected_card.setVisibility(View.VISIBLE);
-                    total_recovered_card.setVisibility(View.VISIBLE);
-                    Total_death_card.setVisibility(View.VISIBLE);
-                    relative_top.setVisibility(View.VISIBLE);
-                    relative_main.setVisibility(View.VISIBLE);
-                    spinner_layout.setVisibility(View.VISIBLE);
-                    death_cardview.setVisibility(View.VISIBLE);
-                    infected_cardView.setVisibility(View.VISIBLE);
+                    constraintLayout.setVisibility(View.VISIBLE);
                     Spinner(countries);
 
 
@@ -146,7 +129,7 @@ public class CountryFragment extends Fragment {
                     Log.d("Error", "connection failed" + " ");
                     Toast.makeText(getContext(), "check the internet connection...", Toast.LENGTH_SHORT).show();
                     alertDialog();// alert for connection
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.getMessage();
                 }
 
@@ -204,13 +187,32 @@ public class CountryFragment extends Fragment {
             txt_patient_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getCases())));
             txt_death_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getDeaths())));
             txt_recovered_all.setText(decimalFormat.format(Integer.valueOf(countries.get(i).getRecovered())));
+            countryName.setText(countries.get(i).getCountry());
+            Picasso.get().load(countries.get(i).getFlag()).into(flag);
 
             //set counter-uo effect
+            if (countries.get(i).getTodayCases().equals("0")){
+                txt_patient_number.setText("N/A");
+            }else
+            {
+                txt_patient_number.setEndValue(Integer.parseInt(countries.get(i).getTodayCases()));
+                txt_patient_number.start();
+            }
 
-            txt_patient_number.setEndValue(Integer.parseInt(countries.get(i).getTodayCases()));
-            txt_patient_number.start();
-            txt_death_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
-            txt_death_number.start();
+            if (countries.get(i).getTodayDeaths().equals("0")){
+                txt_death_number.setText("N/A");
+            }else {
+                txt_death_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
+                txt_death_number.start();
+            }
+
+            if (countries.get(i).getTodayRecovered().equals("0")){
+                txt_Recovered_number.setText("N/A");
+            }else {
+                txt_Recovered_number.setEndValue(Integer.parseInt(countries.get(i).getTodayDeaths()));
+                txt_Recovered_number.start();
+            }
+
         } catch (Exception e) {
             e.getMessage();
         }
@@ -236,15 +238,4 @@ public class CountryFragment extends Fragment {
 
     }
 
-    // json array example
-
-    //{"country":"World","cases":41420389,"todayCases":395659,
-    // "deaths":1134868,"todayDeaths":6020,"recovered":30829609,
-    // "active":9455912,"critical":73951,"casesPerOneMillion":5314,
-    // "deathsPerOneMillion":145,"totalTests":0,"testsPerOneMillion":0},
-    //===========================================================================
-    //{"country":"USA","cases":8574104,"todayCases":53154,"deaths":227167,
-    // "todayDeaths":983,"recovered":5576742,"active":2770195,"critical":15665,
-    // "casesPerOneMillion":25857,"deathsPerOneMillion":685,
-    // "totalTests":128572375,"testsPerOneMillion":387739},
 }
