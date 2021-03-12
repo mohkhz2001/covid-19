@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#119C8E"
-    tools:context=".splashScreenActivity">
+    tools:context="com.mohammadKZ.CoronaVirus_COVID19_statistics.splashScreenActivity">
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="350dp"

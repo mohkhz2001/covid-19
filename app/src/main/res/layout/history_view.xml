@@ -3,10 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:layout_margin="15dp"
-    app:cardBackgroundColor="#55DD67"
-
+    app:cardBackgroundColor="#FFFFFF"
     app:cardCornerRadius="20dp">
 
     <RelativeLayout
@@ -15,150 +13,283 @@
         android:padding="10dp">
 
         <TextView
+            android:id="@+id/txt_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Date: "
+            android:textColor="#000"
+            android:textSize="25sp" />
+
+        <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_toRightOf="@+id/txt_date"
             android:gravity="center"
             android:text="2/9/21"
             android:textColor="#000"
             android:textSize="25sp" />
 
+        <ImageView
+            android:id="@+id/down_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/up" />
+
+        <View
+            android:id="@+id/diver"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/date"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray" />
+
         <androidx.cardview.widget.CardView
-            android:id="@+id/expendable"
+            android:id="@+id/new_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/date"
-            android:padding="10dp"
-            app:cardBackgroundColor="#00FF71"
-            app:cardCornerRadius="30dp">
+            android:layout_below="@id/diver"
+            android:layout_marginTop="10dp"
+            app:cardBackgroundColor="#C1E4DF"
+            app:cardCornerRadius="25sp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/date"
-                android:padding="10dp">
+                android:layout_height="match_parent"
+                android:background="#C1E4DF"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:weightSum="3">
 
-                <TextView
-                    android:id="@+id/newCase_txt"
+
+
+                    <LinearLayout
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Infected"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/newCase"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recovered"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/newRecovered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Death"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/newDeath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/total_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_info"
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="25sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingTop="15dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="15dp"
+                android:weightSum="3">
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="new case: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/newCase"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Infected"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/totalCases"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newCase_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/newDeath_txt"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Recovered"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/totalRecovered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/newCase_txt"
-                    android:layout_marginTop="5dp"
-                    android:text="new death: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
+                    android:layout_weight="1">
 
-                <TextView
-                    android:id="@+id/newDeath"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/newCase_txt"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newDeath_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/newRecovered_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/newDeath_txt"
-                    android:layout_marginTop="5dp"
-                    android:text="new recov: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Death"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="italic" />
 
-                <TextView
-                    android:id="@+id/newRecovered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/newDeath_txt"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newDeath_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
+                        <TextView
+                            android:id="@+id/totalDeath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="999,999"
+                            android:textColor="#000"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/totalCases_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/newRecovered_txt"
-                    android:layout_marginTop="5dp"
-                    android:text="total cases: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalCases"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/newRecovered"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newDeath_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalDeath_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/totalCases_txt"
-                    android:layout_marginTop="5dp"
-                    android:text="total death: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalDeath"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/totalCases"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newDeath_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalRecovered_txt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/totalDeath"
-                    android:layout_marginTop="5dp"
-                    android:text="total reco: "
-                    android:textColor="#000"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/totalRecovered"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/totalDeath"
-                    android:layout_marginTop="5dp"
-                    android:layout_toRightOf="@id/newDeath_txt"
-                    android:text="2555555555"
-                    android:textSize="20sp" />
+                    </LinearLayout>
 
 
-            </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
 

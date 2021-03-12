@@ -4,26 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    android:background="#fff"
+    tools:context="com.mohammadKZ.CoronaVirus_COVID19_statistics.HomeActivity">
 
 
     <FrameLayout
-        android:layout_above="@+id/navigation"
-
+        android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/frameLayout"
-        />
+         />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/navigation"
-        app:menu="@menu/main_menu"
-        app:itemTextColor="@drawable/bg_nav_selected"
-        app:itemIconTint="@drawable/bg_nav_selected"
-        android:background="@drawable/bg_navigation1"
-        />
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:labelVisibilityMode="selected"
+            android:foregroundGravity="center_horizontal"
+            tools:backgroundTint="#9F3232"
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_navigation"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            app:itemIconTint="@drawable/bg_nav_selected"
+            app:itemTextColor="@drawable/bg_nav_selected"
+            app:menu="@menu/main_menu" />
 
-    </RelativeLayout>
+</RelativeLayout>
